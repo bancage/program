@@ -1,0 +1,13 @@
+flowers<-c(12,8,6,20,16)
+fruits<-c(7,11,17,9,5)
+g_range<-range(0,flowers,fruits)
+plot(flowers,type="o",col="blue",main="Grocery",ylim=g_range,axes=F,ann=F)
+axis(1,at=1:5,lab=c("Mon","Tue","Wed","Thu","Fri"))
+axis(2,las=1,at=4*0:g_range[2])
+box()
+lines(fruits,type="o",pch=22,lty=2,col="red")
+title(main="Grocery",col.main="red",font.main=4)
+legend("topleft", c("flowers","fruits"), cex=0.8, col=c("blue","red"), pch=21:22, lty=1:2)
+title(xlab="Days", col.lab=rgb(0,0.5,0))
+title(ylab="Total", col.lab=rgb(0,0.5,0))
+

@@ -1,0 +1,16 @@
+setwd("E:/Doctor/课程/BCC培训/北京市计算中心-论文图表处理培训班/课件/R软件")
+autos_data<-read.table("autos.dat", header=T, sep="\t")
+pdf(file="figure.pdf", height=3.5, width=5)
+par(mar=c(4.2, 3.8, 0.2, 0.2))
+plot(autos_data$cars, type="l", col=plot_colors[1], ylim=range(autos_data),axes=F, ann=T, xlab="Days",ylab="Total", cex.lab=0.8, lwd=2) 
+axis(1, lab=F) 
+text(axTicks(1), par("usr")[3] -2, srt=45, adj=1, labels=c("Mon", "Tue", 
+"Wed", "Thu", "Fri"), xpd=T, cex=0.8)
+axis(2, las=1, cex.axis=0.8)
+box()
+lines(autos_data$trucks, type="l", lty=2, lwd=2, col=plot_colors[2])
+lines(autos_data$suvs, type="l", lty=3, lwd=2, col=plot_colors[3])
+# Create a legend in the top-left corner that is slightly # smaller and has no border 
+legend("topleft", names(autos_data), cex=0.8, col=plot_colors, lty=1:3,lwd=2, bty="n")
+# Turn off device driver (to flush output to PDF) 
+dev.off()

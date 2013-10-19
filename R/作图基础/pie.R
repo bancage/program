@@ -1,0 +1,8 @@
+flowers<-c(12,8,6,20,16)
+fruits<-c(7,11,17,9,5)
+flowers_labels<-round(flowers/sum(flowers)*100,1)
+flowers_labels<-paste(flowers_labels,"%",sep="")
+#colors<-c("white","grey70","grey90","grey50","black")
+colors<-rainbow(length(flowers))
+pie(flowers,main="Flowers",col=colors,labels=flowers_labels,cex=0.8)
+legend(1.5,0.5,c("Mon","Tue","Wed","Thu","Fri"),cex=0.8,fill=colors)
